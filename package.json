@@ -1,0 +1,24 @@
+{
+  "name": "element-plus-easy",
+  "version": "0.0.5",
+  "description": "Further encapsulate the Element UI to make it simpler and more concise to use.",
+  "main": "index.js",
+  "repository": "git@github.com:laoer536/element-plus-easy.git",
+  "author": "laoer536 <1547698569@qq.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.4"
+  }
+}
