@@ -10,13 +10,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
   },
   "dependencies": {
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
     "@vitejs/plugin-vue": "^3.1.0",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.5.1",
+    "prettier": "^2.7.1",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
     "vue-tsc": "^0.40.4"
