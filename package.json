@@ -13,6 +13,7 @@
   "repository": "git@github.com:laoer536/element-plus-easy.git",
   "author": "laoer536 <1547698569@qq.com>",
   "license": "MIT",
+  "keywords": ["element-plus-easy","ElementPlusEasy","elementPlusEasy","vue3-element-plus-easy","ey-ui"],
   "type": "module",
   "scripts": {
     "dev": "vite",

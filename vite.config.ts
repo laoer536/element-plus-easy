@@ -18,6 +18,7 @@ export default defineConfig({
   },
   // 打包配置
   build: {
+    outDir: 'build',
     lib: {
       entry: 'packages/index.ts', // 设置入口文件
       name: 'element-plus-easy', // 起个名字，安装、引入用
