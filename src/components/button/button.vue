@@ -1,8 +1,3 @@
-<script lang="ts">
-export default {
-  name: 'EyButton',
-}
-</script>
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{ text?: string }>(), {
   text: '按钮',
