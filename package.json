@@ -1,9 +1,10 @@
 {
   "name": "element-plus-easy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Further encapsulate the Element UI to make it simpler and more concise to use.",
   "main": "./dist/vite-lib.umd.js",
   "module": "./dist/vite-lib.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vite-lib.es.js",
@@ -13,11 +14,17 @@
   "repository": "git@github.com:laoer536/element-plus-easy.git",
   "author": "laoer536 <1547698569@qq.com>",
   "license": "MIT",
-  "keywords": ["element-plus-easy","ElementPlusEasy","elementPlusEasy","vue3-element-plus-easy","ey-ui"],
+  "keywords": [
+    "element-plus-easy",
+    "ElementPlusEasy",
+    "elementPlusEasy",
+    "vue3-element-plus-easy",
+    "ey-ui"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,tsx,json,md}\""
@@ -40,6 +47,7 @@
     "sass-loader": "^13.0.2",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
+    "vite-plugin-dts": "^1.6.4",
     "vue-tsc": "^0.40.4"
   }
 }

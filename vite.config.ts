@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), dts({ insertTypesEntry: true, copyDtsFiles: false })],
   resolve: {
     //别名
     alias: {
@@ -18,9 +19,8 @@ export default defineConfig({
   },
   // 打包配置
   build: {
-    outDir: 'build',
     lib: {
-      entry: 'packages/index.ts', // 设置入口文件
+      entry: 'src/index.ts', // 设置入口文件
       name: 'element-plus-easy', // 起个名字，安装、引入用
       fileName: (format) => `vite-lib.${format}.js`, // 打包后的文件名
     },

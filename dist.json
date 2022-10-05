@@ -1,13 +1,14 @@
 {
   "name": "element-plus-easy",
-  "version": "0.0.2",
+  "version": "0.0.18",
   "description": "Further encapsulate the Element UI to make it simpler and more concise to use.",
-  "main": "./build/vite-lib.umd.js",
-  "module": "./build/vite-lib.es.js",
+  "main": "vite-lib.umd.js",
+  "module": "vite-lib.es.js",
+  "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/vite-lib.es.js",
-      "require": "./build/vit-lib.umd.js"
+      "import": "vite-lib.es.js",
+      "require": "vite-lib.umd.js"
     }
   },
   "repository": "git@github.com:laoer536/element-plus-easy.git",
@@ -20,6 +21,14 @@
     "vue3-element-plus-easy",
     "ey-ui"
   ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,tsx,json,md}\""
+  },
   "dependencies": {
     "element-plus": "^2.2.17",
     "vue": "^3.2.37"
