@@ -1,2 +1,8 @@
+import type { Component } from 'vue'
 import { EyButton } from './components/button'
-export default [EyButton]
+const components: {
+  EyButton: typeof EyButton
+} = {
+  EyButton,
+}
+export default components
