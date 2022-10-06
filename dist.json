@@ -32,5 +32,10 @@
   "dependencies": {
     "element-plus": "^2.2.17",
     "vue": "^3.2.37"
-  }
+  },
+  "vetur": {
+    "tags": "tags.json",
+    "attributes": "attributes.json"
+  },
+  "web-types": "web-types.json"
 }
