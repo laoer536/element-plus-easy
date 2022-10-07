@@ -2,10 +2,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts({ insertTypesEntry: true, copyDtsFiles: false })],
+  plugins: [vue(), vueJsx(), dts({ insertTypesEntry: true, copyDtsFiles: false })],
   resolve: {
     //别名
     alias: {
