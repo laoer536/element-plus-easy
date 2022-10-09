@@ -1,49 +1,62 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
+import type { ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
-import dts from 'vite-plugin-dts'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue(), vueJsx(), dts({ insertTypesEntry: true, copyDtsFiles: false })],
-  resolve: {
-    //别名
-    alias: {
-      '@': resolve(__dirname, './src'),
-      '@components': resolve(__dirname, './packages/components'),
-      '@store': resolve(__dirname, './src/store'),
-      '@views': resolve(__dirname, './src/views'),
-      '@assets': resolve(__dirname, './src/assets'),
-      '@hooks': resolve(__dirname, './src/hooks'),
+export default ({ command, mode }: ConfigEnv) => {
+  const currentEnv = loadEnv(mode, process.cwd())
+  console.log('当前模式', command)
+  console.log('当前环境配置', currentEnv) //loadEnv即加载根目录下.env.[mode]环境配置文件
+  return defineConfig({
+    plugins: [
+      vue(),
+      AutoImport({
+        imports: ['vue', 'vue-router'],
+        dts: './src/auto-imports.d.ts',
+        // vueTemplate: true,
+        eslintrc: {
+          enabled: true, // Default `false`
+          filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+        },
+        // resolvers: [ElementPlusResolver()],
+      }),
+    ],
+    //项目部署的基础路径,
+    base: currentEnv.VITE_PUBLIC_PATH,
+    mode: mode,
+    resolve: {
+      //别名
+      alias: {
+        '@': resolve(__dirname, './src'),
+        '@components': resolve(__dirname, './packages/components'),
+        '@views': resolve(__dirname, './src/views'),
+        '@assets': resolve(__dirname, './src/assets'),
+        '@hooks': resolve(__dirname, './src/hooks'),
+      },
     },
-  },
-  // 打包配置
-  build: {
-    lib: {
-      entry: 'src/index.ts', // 设置入口文件
-      name: 'element-plus-easy', // 起个名字，安装、引入用
-      fileName: (format) => `vite-lib.${format}.js`, // 打包后的文件名
-    },
-    sourcemap: true, // 输出.map文件
-    rollupOptions: {
-      // 确保外部化处理那些你不想打包进库的依赖
-      external: ['vue', 'element-plus'],
-      output: {
-        // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-        globals: {
-          vue: 'Vue',
-          'element-plus': 'element-plus',
+    css: {
+      // css预处理器
+      preprocessorOptions: {
+        sass: {
+          javascriptEnabled: true,
         },
       },
     },
-  },
-  css: {
-    preprocessorOptions: {
-      sass: {
-        javascriptEnabled: true,
-        additionalData: '@import "./packages/index.less";',
-      },
+    //构建
+    build: {
+      outDir: `docs`,
+      // assetsDir: 'assets', //指定生成静态资源的存放路径（相对于 build.outDir）。
+      sourcemap: mode != 'production',
+      //打包去掉打印信息 保留debugger vite3需要单独安装terser才行
+      // minify: 'terser',
+      // terserOptions: {
+      //   compress: {
+      //     drop_console: true,
+      //     drop_debugger: false,
+      //   },
+      // },
     },
-  },
-})
+  })
+}

@@ -1,0 +1,5 @@
+*
+!*/dist
+!*/package.json
+!*/index.scss
+!*/helper.cjs
