@@ -1,5 +1,8 @@
-*
-!*/dist
-!*/package.json
-!*/index.scss
-!*/helper.cjs
+components.ts
+global.ts
+helper.cjs
+index.ts
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+components/

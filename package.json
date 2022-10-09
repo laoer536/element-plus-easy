@@ -18,7 +18,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,tsx,json,md}\"",
-    "build:package": "cd ./packages && yarn build"
+    "package:build": "cd ./packages && yarn build",
+    "package:publish": "cd ./packages && npm publish"
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^2.0.1",

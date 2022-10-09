@@ -1,6 +1,6 @@
 {
   "name": "element-plus-easy",
-  "version": "0.0.42",
+  "version": "0.0.55",
   "description": "Further encapsulate the Element UI to make it simpler and more concise to use.",
   "main": "./dist/vite-lib.umd.js",
   "module": "./dist/vite-lib.es.js",
@@ -29,8 +29,8 @@
     "vue": "^3.2.37"
   },
   "vetur": {
-    "tags": "tags.json",
-    "attributes": "attributes.json"
+    "tags": "./dist/tags.json",
+    "attributes": "./dist/attributes.json"
   },
-  "web-types": "web-types.json"
+  "web-types": "./dist/web-types.json"
 }
