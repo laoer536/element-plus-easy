@@ -6,7 +6,7 @@
 
 <template>
   <div>
-    <EyButton />
+    <router-view />
   </div>
 </template>
 
